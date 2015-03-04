@@ -1,0 +1,35 @@
+.tree {
+	list-style: none;
+}
+
+.tree ul {
+	list-style: none;
+}
+
+.tree li {
+	margin-left: 1em;
+} 
+
+.tree .tree-item {
+	margin-left: 0;
+}
+
+.tree .toggle-button:before {
+	content: "+";
+	color: blue;
+	cursor: pointer;
+}
+
+.tree .tree-item.opened > .toggle-button:before {
+	content: "-";
+	color: blue;
+	cursor: pointer;
+}
+
+.tree .tree-item ul {
+	display: none;
+}
+
+.tree .tree-item.opened > ul {
+	display: block;
+}
