@@ -3,22 +3,13 @@ $(document).ready(function() {
 	var $divs = $td.find("div");
 	var result = {};
 
-	$divs.each(function(index) {
-		var id = index + 1 + "";
-		var title = $(this).children("input").val();
-		$(this).data({
-			id: id,
-			title: title,
-		});
-	});
-
 	result["0"] = {
 		children: logChildren($td),
 	};
 
 	$divs.each(function(index) {
-		var id = $(this).data("id");
-		var title = $(this).data("title");
+		var id = $(this).attr("id").slice(6);
+		var title = $(this).children("input").val();
 		var children = logChildren($(this));
 
 		result[id] = {
@@ -35,7 +26,7 @@ $(document).ready(function() {
 	function logChildren($elem) {
 		var children = [];
 		$elem.children("div").each(function() {
-			var id = $(this).data("id");
+			var id = $(this).attr("id").slice(6);
 			children.push(id);
 		});
 
